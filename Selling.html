@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Let It GO!</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet">
+</head>
+
+<body onload="myFunction()">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
+        <img src="images/letgo.png" id="navpic">
+        <form class="form-inline my-2 my-lg-0 navbar-left">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+            <button type="button" class="btn btn-danger navbut">Ara</button>
+        </form>
+
+
+
+
+        <form class="form-inline">
+            <button type="button" class="btn btn-danger navbut">Eşyalarını Sat <i class="fas fa-camera"></i></button>
+            <button type="button" class="btn btn-danger navbut"><i class="far fa-comments"></i></button>
+            <button type="button" class="btn btn-danger navbut"><i class="fas fa-bell"></i></button>
+            <ul class="navbar-nav">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button type="button" class="btn btn-danger navbut"><i class="fas fa-user"></i></button>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Ana Sayfa</a>
+                        <a class="dropdown-item" href="#">Sohbet</a>
+                        <a class="dropdown-item" href="#">Bildirimler</a>
+                        <a class="dropdown-item" href="#">Profilim</a>
+                        <a class="dropdown-item" href="#">Çıkış Yap</a>
+                    </div>
+                </li>
+            </ul>
+
+        </form>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mt-5">
+                <form>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-box-open"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Ürün Adı" aria-describedby="basic-addon1" name="name">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-dollar-sign"></i></span>
+                        </div>
+                        <input type="email" class="form-control" placeholder="Fiyat" aria-describedby="basic-addon1" name="mail">
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3" style="margin-left: 190px; width: 40px;">
+                            <select class="form-control">
+                                <option value="+47">Şehir</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-pencil-alt"></i></span>
+                        </div>
+                        <textarea class="form-control" placeholder="Açıklama" rows="5" name="message"></textarea>
+                    </div>
+
+                    <input type="file" id="myFile" multiple size="50" onchange="myFunction()" style="margin-left:190px;">
+
+                    <input type="submit" value="Kayıt Ol" class="btn btn-outline-danger btn-block mt-5 mb-5">
+                </form>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+   <div class="footerclass">
+       <footer id="main-footer" class="py-2">
+        <div class="container-fluid">
+            <div class="row text-center">
+                <div class="col-md-6 mx-auto">
+                    <p class="lead">Let It Go! &copy; 2018</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+   </div>
+
+    <script src="js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+</body>
+
+</html>
+
+
+<script>
+function myFunction(){
+  var x = document.getElementById("myFile");
+  var txt = "";
+  if ('files' in x) {
+    if (x.files.length == 0) {
+      txt = "Select one or more files.";
+    } else {
+      for (var i = 0; i < x.files.length; i++) {
+        txt += "<br><strong>" + (i+1) + ". file</strong><br>";
+        var file = x.files[i];
+        if ('name' in file) {
+          txt += "name: " + file.name + "<br>";
+        }
+        if ('size' in file) {
+          txt += "size: " + file.size + " bytes <br>";
+        }
+      }
+    }
+  } 
+  else {
+    if (x.value == "") {
+      txt += "Select one or more files.";
+    } else {
+      txt += "The files property is not supported by your browser!";
+      txt  += "<br>The path of the selected file: " + x.value; // If the browser does not support the files property, it will return the path of the selected file instead. 
+    }
+  }
+  document.getElementById("demo").innerHTML = txt;
+}
+</script>
